@@ -55,6 +55,38 @@ h4,
     text-shadow: 0px 0px 10px rgba(234, 173, 31, 0.3);
 }
 
+/* 1. Ensure the font matches the main navbar */
+.navbar .dropdown-menu .dropdown-item {
+    font-family: 'Viking-Normal', san-serif;
+    /* REPLACE 'Norse' with the actual name of your font */
+    font-weight: bold;
+    /* Viking fonts usually look better bold */
+    letter-spacing: 1px;
+    /* Adds a little breathing room */
+    text-transform: uppercase;
+    /* Optional: If you want them all caps like the headers */
+    font-size: 1.1rem;
+    /* Adjust size if the custom font looks too small */
+}
+
+/* 2. Hover Effect - Bright White text (like nav-links) */
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item:focus {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Subtle background highlight */
+}
+
+/* 3. Active State - Matches your theme */
+.navbar .dropdown-menu .dropdown-item.active,
+.navbar .dropdown-menu .dropdown-item:active {
+    background-color: #eaad1f;
+    /* Mt. Hebron Gold */
+    color: #000;
+    /* Black text on Gold background */
+    font-weight: bold;
+}
+
 /* Main Hero Section */
 .main-hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
