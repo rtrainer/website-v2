@@ -79,7 +79,6 @@
 
     <div class="container my-5">
         <div class="row g-5">
-
             <div class="col-md-5">
                 <div class="p-4" style="background-color: #222; border-radius: 10px; border-left: 4px solid #eaad1f;">
                     <h3 class="viking-font mb-4">Get in Touch</h3>
@@ -107,8 +106,7 @@
             </div>
 
             <div class="col-md-7">
-                <form action="https://formspree.io/f/YOUR_FORMSPREE_ID_HERE" method="POST">
-
+                <form id="emailForm">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="name" class="form-label">Your Name</label>
@@ -136,7 +134,7 @@
                         <textarea name="message" class="form-control custom-input" id="message" rows="5" required></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-norse btn-lg w-100">SEND MESSAGE</button>
+                    <button id="submitBtn" type="submit" class="btn btn-norse btn-lg w-100">SEND MESSAGE</button>
                 </form>
             </div>
         </div>
@@ -179,6 +177,61 @@
             </div>
         </div>
     </footer>
+
+    <div id="successPopup" class="popup-overlay">
+        <div class="popup-content">
+            <h3>Success!</h3>
+            <p>Your email has been sent successfully.</p>
+            <button class="close-btn" onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('emailForm');
+        const popup = document.getElementById('successPopup');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Replace this with your actual Google Cloud Function URL
+        const GOOGLE_FUNCTION_URL = "https://us-east4-ragnarok-inquiry-email.cloudfunctions.net/EmailSenderFunction";
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault(); // Stop the form from reloading the page
+
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Sending...";
+
+            // Gather form data
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(GOOGLE_FUNCTION_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    // Show Popup on Success
+                    popup.style.display = 'flex';
+                    form.reset(); // Clear the form
+                } else {
+                    const errorText = await response.text();
+                    alert("Error: " + errorText);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert("Failed to connect to the server.");
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Send Email";
+            }
+        });
+
+        function closePopup() {
+            popup.style.display = 'none';
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
