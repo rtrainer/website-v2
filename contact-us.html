@@ -90,11 +90,6 @@
                             Ellicott City, MD 21042</p>
                     </div>
 
-                    <div class="mb-4">
-                        <h5 style="color: #eaad1f;">Email</h5>
-                        <p><a href="mailto:contact@team3748.org" class="text-white text-decoration-none">contact@team3748.org</a></p>
-                    </div>
-
                     <div>
                         <h5 style="color: #eaad1f;">Socials</h5>
                         <div class="social-icons" style="margin-left: -15px;"> <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -106,7 +101,7 @@
             </div>
 
             <div class="col-md-7">
-                <form id="emailForm">
+                <form id="emailForm" method="POST">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="name" class="form-label">Your Name</label>
@@ -213,6 +208,7 @@
                 if (response.ok) {
                     // Show Popup on Success
                     popup.style.display = 'flex';
+
                     form.reset(); // Clear the form
                 } else {
                     const errorText = await response.text();

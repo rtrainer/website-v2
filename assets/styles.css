@@ -67,18 +67,16 @@ h4,
 /* 2. Hover Effect - Bright White text (like nav-links) */
 .navbar .dropdown-menu .dropdown-item:hover,
 .navbar .dropdown-menu .dropdown-item:focus {
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--ragnarok-gold);
+    /*background-color: rgba(255, 255, 255, 0.1);*/
     /* Subtle background highlight */
 }
 
 /* 3. Active State - Matches your theme */
 .navbar .dropdown-menu .dropdown-item.active,
 .navbar .dropdown-menu .dropdown-item:active {
-    background-color: #eaad1f;
-    /* Mt. Hebron Gold */
-    color: #000;
-    /* Black text on Gold background */
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--ragnarok-gold);
     font-weight: bold;
 }
 
@@ -192,20 +190,6 @@ footer a:hover {
     /* Adds a glow */
 }
 
-/* Force the dropdown to be pitch black */
-.dropdown-menu-dark {
-    background-color: #000000 !important;
-    border: 1px solid #333;
-    /* Dark gray border so it pops */
-}
-
-/* Optional: Change hover color to your team color (e.g., Blue) */
-.dropdown-item:hover {
-    background-color: #0d6efd !important;
-    /* Bootstrap Blue */
-    color: #fff !important;
-}
-
 /* --- Member Card Styling --- */
 .member-card {
     background-color: #222;
@@ -261,7 +245,7 @@ footer a:hover {
 }
 
 .member-info .role {
-    color: #eaad1f;
+    color: var(--ragnarok-gold);
     /* Gold Role Title */
     font-weight: bold;
     margin-bottom: 5px;
@@ -401,6 +385,11 @@ footer a:hover {
 
 .close-btn:hover {
     background-color: #5a6268;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
 @keyframes fadeIn {
