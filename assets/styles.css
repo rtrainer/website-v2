@@ -270,6 +270,28 @@ footer a:hover {
     min-height: 150px;
 }
 
+.mentor-card:hover {
+    transform: translateY(-5px);
+    /* Lift up slightly */
+    border-color: #eaad1f;
+    /* Turn border gold */
+    box-shadow: 0 4px 15px rgba(234, 173, 31, 0.3);
+    /* Gold glow */
+}
+
+/* Ensure the title and role have spacing */
+.mentor-card h4 {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.mentor-card .role {
+    color: #adb5bd;
+    /* Light grey for the role text */
+    margin-bottom: 0;
+    font-style: italic;
+}
+
 .sponsor-card {
     background: #fff;
     border: 1px solid #dee2e6;
@@ -330,7 +352,13 @@ footer a:hover {
 
 .team-title {
     color: var(--ragnarok-gold);
-    font-family: 'Viking-Normal', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+}
+
+.team-subtitle {
+    color: var(--ragnarok-gold);
+    font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
 }
 
@@ -408,25 +436,6 @@ button:disabled {
     background-color: #212529;
     color: white;
     font-family: 'Viking-Normal', sans-serif;
-}
-
-/* Tier Colors */
-.tier-platinum {
-    background-color: #e5e4e2 !important;
-    font-weight: bold;
-}
-
-.tier-gold {
-    background-color: #fff4b8 !important;
-    font-weight: bold;
-}
-
-.tier-silver {
-    background-color: #f0f0f0 !important;
-}
-
-.tier-bronze {
-    background-color: #fff0e0 !important;
 }
 
 /* 4. COMPONENT STYLING */
