@@ -19,6 +19,65 @@
     <link rel="stylesheet" href="assets/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/viking-normal" rel="stylesheet">
+
+    <style>
+        .ticker-wrapper {
+            background-color: #1a1a1a;
+            border-bottom: 2px solid var(--ragnarok-gold);
+            overflow: hidden;
+            /* Hides the text when it slides off screen */
+            position: relative;
+            height: 42px;
+            /* Fixed height to prevent layout jumps */
+            width: 100%;
+        }
+
+        .ticker-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            /* Allows movement independent of container */
+
+            /* The Animation: Name, Duration, Timing, Loop */
+            animation: tickerPause 12s ease-in-out infinite;
+        }
+
+        /* The Animation Logic */
+        @keyframes tickerPause {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            /* Start off-screen Right */
+            10% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            /* Slide to Center */
+            90% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            /* PAUSE (Stay in Center) */
+            100% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            /* Slide off-screen Left */
+        }
+
+        /* Pause animation if user hovers over it (optional usability tweak) */
+        .ticker-wrapper:hover .ticker-content {
+            animation-play-state: paused;
+        }
+    </style>
 </head>
 
 <body>
@@ -81,12 +140,13 @@
         </div>
     </nav>
 
-    <header class="main-hero">
-        <div class="container text-center">
-            <h1 class="display-3 mb-2">RAGNAROK ROBOTICS</h1>
-            <p class="text-white-50 mb-2" style="font-family: 'Cinzel Decorative', cursive;">Engineering the Future</p>
+    <div class="ticker-wrapper">
+        <div class="ticker-content">
+            <span class="text-white text-uppercase me-2" style="font-size: 0.9rem; letter-spacing: 1px;">Coming 2026:</span>
+            <span class="me-3" style="font-family: 'Viking-Normal', sans-serif; color: var(--ragnarok-gold); font-size: 1.1rem;">REBUILT</span>
+            <a href="2026-game.html" class="btn btn-sm btn-norse py-0 px-2" style="font-size: 0.8rem;">View Teaser</a>
         </div>
-    </header>
+    </div>
 
     <section id="about" class="py-5">
         <div class="container">
